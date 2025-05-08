@@ -5,7 +5,7 @@ type BooksState = {
 };
 
 const initialState: BooksState = {
-  title: '',
+  title: 'default.no-pageTitle',
 };
 
 export const AppStore = signalStore(

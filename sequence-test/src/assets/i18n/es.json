@@ -1,3 +1,6 @@
 {
-    "appComponentPage": "Página de prueba estados"
+    "appComponentPage": "Página de prueba estados",
+    "default": {
+        "no-pageTitle": "No hay título de página"
+    }
 }
