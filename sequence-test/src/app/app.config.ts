@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection, importProvidersFrom, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -10,6 +10,8 @@ import es from '@angular/common/locales/es';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
+import { TranslocoHttpLoader } from './transloco-loader';
+import { provideTransloco } from '@jsverse/transloco';
 
 registerLocaleData(es);
 
@@ -21,6 +23,13 @@ export const appConfig: ApplicationConfig = {
     provideNzI18n(es_ES), 
     importProvidersFrom(FormsModule), 
     provideAnimationsAsync(), 
-    provideHttpClient()
+    provideHttpClient(), provideHttpClient(), provideTransloco({
+        config: { 
+          availableLangs: ['es'],
+          defaultLang: 'es',
+          prodMode: !isDevMode(),
+        },
+        loader: TranslocoHttpLoader
+      })
   ]
 };
