@@ -21,6 +21,7 @@
     "@ant-design/icons-angular": "^19.0.0",
     "@jsverse/transloco": "7.6.1",
     "@jsverse/transloco-utils": "^7.0.2",
+    "@ngrx/signals": "^19.1.0",
     "ng-zorro-antd": "^19.2.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

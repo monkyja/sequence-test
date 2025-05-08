@@ -41,6 +41,9 @@ importers:
       '@jsverse/transloco-utils':
         specifier: ^7.0.2
         version: 7.0.2(typescript@5.7.3)
+      '@ngrx/signals':
+        specifier: ^19.1.0
+        version: 19.1.0(@angular/core@19.2.10(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       ng-zorro-antd:
         specifier: ^19.2.2
         version: 19.2.2(a49bb5a0a4466998603257129f53824b)
@@ -1341,6 +1344,15 @@ packages:
   '@napi-rs/nice@1.0.1':
     resolution: {integrity: sha512-zM0mVWSXE0a0h9aKACLwKmD6nHcRiKrPpCfvaKqG1CqDEyjEawId0ocXxVzPMCAm6kkWr2P025msfxXEnt8UGQ==}
     engines: {node: '>= 10'}
+
+  '@ngrx/signals@19.1.0':
+    resolution: {integrity: sha512-v8sbb+Iox9kdIaKbFgt4Z1W+NxzIU4+g+6qQU6/c27UmtQXv0s1zUKKofPRK0qwkaZzNWkxNToxyoE285ukqcQ==}
+    peerDependencies:
+      '@angular/core': ^19.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
 
   '@ngtools/webpack@19.2.11':
     resolution: {integrity: sha512-rOtSuw5mqyCIrsxZQBqv5flQqVjKMsOtIqKIgWs/UKdoiGgDckeJMTdOjbXvkF3Iy3XpG9bNiLJoSwbENpyxsw==}
@@ -5741,6 +5753,13 @@ snapshots:
       '@napi-rs/nice-win32-ia32-msvc': 1.0.1
       '@napi-rs/nice-win32-x64-msvc': 1.0.1
     optional: true
+
+  '@ngrx/signals@19.1.0(@angular/core@19.2.10(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 19.2.10(rxjs@7.8.2)(zone.js@0.15.0)
+      tslib: 2.8.1
+    optionalDependencies:
+      rxjs: 7.8.2
 
   '@ngtools/webpack@19.2.11(@angular/compiler-cli@19.2.10(@angular/compiler@19.2.10)(typescript@5.7.3))(typescript@5.7.3)(webpack@5.98.0(esbuild@0.25.4))':
     dependencies:
