@@ -184,7 +184,7 @@
       "createYear": 1968,
       "employees": 2000,
       "rating": 8.32,
-      "songsIds": [2, 3]
+      "songs": [2, 3]
     },
     {
       "id": 2,
@@ -193,7 +193,7 @@
       "createYear": 2005,
       "employees": 611,
       "rating": 8.19,
-      "songsIds": [4, 8]
+      "songs": [4, 8]
     },
     {
       "id": 3,
@@ -202,7 +202,7 @@
       "createYear": 1994,
       "employees": 511,
       "rating": 8.09,
-      "songsIds": [5, 6, 7]
+      "songs": [5, 6, 7]
     },
     {
       "id": 4,
@@ -211,7 +211,7 @@
       "createYear": 2005,
       "employees": 42,
       "rating": 9.26,
-      "songsIds": [8, 9]
+      "songs": [8, 9]
     },
     {
       "id": 5,
@@ -220,7 +220,7 @@
       "createYear": 1999,
       "employees": 921,
       "rating": 1.77,
-      "songsIds": []
+      "songs": []
     }
   ]
 }
