@@ -3,4 +3,5 @@ import { SongListComponent } from './list/list.component';
 
 export const SONGS_ROUTES: Routes = [
   { path: 'songs', component: SongListComponent },
+  { path: 'song/:id', loadComponent: () => import('./show/show.component').then(m => m.SongShowComponent) },
 ];

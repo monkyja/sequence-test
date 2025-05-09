@@ -15,6 +15,10 @@ export class SongService {
     return this.http.get<Song[]>(`${this.apiUrl}/songs?_embed=artist`);
   }
 
+  getSong(id: number): Observable<Song> {
+    return this.http.get<Song>(`${this.apiUrl}/songs/${id}?_embed=artist`);
+  }
+
   remove(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/songs/${id}`);
   }

@@ -7,6 +7,8 @@ import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { SongStore } from '@stores/song/song.store';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { Router } from '@angular/router';
+import { ROUTES } from '@const/routes';
 
 @Component({
   selector: 'app-song-summaryCard',
@@ -16,9 +18,20 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 export class SummaryCardComponent {
   @Input() song?: Song;
 
-  constructor(private modal: NzModalService) {}
+  constructor(
+    private modal: NzModalService,
+    private router: Router
+  ) {}
 
   songStore = inject(SongStore);
+
+  onDetail() {
+    if (!this.song) return;
+
+    const newUrl = ROUTES.SONG.SHOW.replace(":id", this.song.id.toString());
+
+    this.router.navigate([newUrl]);
+  }
 
   onDelete() {
     if (!this.song) return;

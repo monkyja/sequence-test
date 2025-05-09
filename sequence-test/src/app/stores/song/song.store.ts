@@ -2,11 +2,13 @@ import { Song } from '@models/song.model';
 import { inject } from '@angular/core';
 import { signalStore, withState, withMethods, patchState, withProps } from '@ngrx/signals';
 import { SongService } from '@services/song/song.service';
+import { tap } from 'rxjs/operators';
 
 type SongState = {
   isLoading: boolean;
   isDeleting: number[];
   songs: Song[];
+  detailedSong?: Song;
 };
 
 const initialState: SongState = {
@@ -32,6 +34,15 @@ export const SongStore = signalStore(
           patchState(store, { isLoading: false });
         });
     },
+    getSong: (id: number) => {
+      patchState(store, { isLoading: true });
+
+      return songService.getSong(id).pipe(
+        tap((data: Song) => {
+          patchState(store, { isLoading: false });
+        })
+      );
+    },
     remove: (id: number) => {
       patchState(store, { isDeleting: [...store.isDeleting(), id] });
 
@@ -44,4 +55,5 @@ export const SongStore = signalStore(
         });
       }, 3000);
     },
-})))
+  }))
+);

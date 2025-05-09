@@ -18,6 +18,10 @@
                 "menuTitle": "Lista de Canciones",
                 "pageTitle": "Lista de Canciones",
                 "parragraph1": "Esta es una lista de canciones que se pueden añadir a la lista de favoritos."
+            },
+            "show": {
+                "pageTitle": "Detalles de Canción",
+                "parragraph1": "Esta es una página de detalles de canción que se puede añadir a la lista de favoritos."
             }
         }
     },
