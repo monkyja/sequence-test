@@ -1,4 +1,4 @@
-import { Artist } from "@models/artist";
+import { Artist } from "@models/artist.model";
 
 export interface Song {
     id: number;
