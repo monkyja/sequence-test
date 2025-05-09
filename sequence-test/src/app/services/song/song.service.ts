@@ -7,12 +7,15 @@ import { Song } from '@app/models/song.model';
     providedIn: 'root'
 })
 export class SongService {
+  private apiUrl = 'http://localhost:3000';
 
-    private apiUrl = 'http://localhost:3000';
+  constructor(private http: HttpClient) { }
 
-    constructor(private http: HttpClient) { }
+  getSongs(): Observable<Song[]> {
+    return this.http.get<Song[]>(`${this.apiUrl}/songs?_embed=artist`);
+  }
 
-    getSongs(): Observable<Song[]> {
-        return this.http.get<Song[]>(`${this.apiUrl}/songs?_embed=artist`);
-    }
+  remove(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/songs/${id}`);
+  }
 }

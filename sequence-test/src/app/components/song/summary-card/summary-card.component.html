@@ -18,5 +18,11 @@
         <span class="text-gray-500 text-sm ml-1">{{ genre }}</span>
       }
     </div>
+    <div #actions class="flex justify-between items-center mt-4">
+      <button nz-button nzType="primary" nzDanger (click)="this.onDelete()" [nzLoading]="this.songStore.isDeleting().includes(this.song.id)">
+        <i nz-icon nzType="delete" class="pr-1"></i>
+        {{ 'default.delete' | transloco }}
+      </button>
+    </div>
   </nz-card>
 }

@@ -1,7 +1,11 @@
 {
     "appComponentPage": "Página de prueba estados",
     "default": {
-        "no-pageTitle": "No hay título de página"
+        "no-pageTitle": "No hay título de página",
+        "show": "Ver",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "cancel": "Cancelar"
     },
     "pages": {
         "home": {
@@ -20,7 +24,13 @@
     "components": {
         "song": {
             "summaryCard": {
-                "no-artist": "No hay artista"
+                "no-artist": "No hay artista",
+                "actions": {
+                    "delete": {
+                        "title": "Eliminar Canción",
+                        "message": "¿Está seguro de que desea eliminar \"{{title}}\"?"
+                    }
+                }
             }
         }
     }
