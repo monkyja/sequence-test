@@ -8,6 +8,13 @@
             "menuTitle": "Inicio",
             "pageTitle": "Página de inicio",
             "parragraph1": "Esta prueba técnica ha sido desarrollada por Juan Antonio Ocaña para Sequence."
+        },
+        "song": {
+            "list": {
+                "menuTitle": "Lista de Canciones",
+                "pageTitle": "Lista de Canciones",
+                "parragraph1": "Esta es una lista de canciones que se pueden añadir a la lista de favoritos."
+            }
         }
     }
 }
