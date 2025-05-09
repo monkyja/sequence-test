@@ -1,0 +1,23 @@
+
+@if(songStore.isLoading())
+{
+  <nz-spin nzSize="large" nzTip="Loading..."></nz-spin>
+}
+
+@if(song)
+{
+  <form nz-form input (ngSubmit)="onSave()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="title">{{'pages.song.edit.form.title' | transloco}}</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="title" id="title" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+        <button nz-button nzType="primary">{{'default.save'}}</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+}

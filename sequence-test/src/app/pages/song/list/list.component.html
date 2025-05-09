@@ -18,3 +18,12 @@
         </div>
     </nz-list>
 </section>
+
+<div class="fixed bottom-0 right-0 z-50">
+  <div class="flex flex-col items-end gap-2 bg-white shadow-md rounded-md p-3">
+    <button nz-button nzType="primary" (click)="onCreate()">
+      <span nz-icon nzType="plus" nzTheme="outline"></span>
+      <span class="ml-2">{{ 'default.create' | transloco }}</span>
+    </button>
+  </div>
+</div>

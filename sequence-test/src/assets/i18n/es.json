@@ -5,7 +5,9 @@
         "show": "Ver",
         "edit": "Editar",
         "delete": "Eliminar",
-        "cancel": "Cancelar"
+        "cancel": "Cancelar",
+        "create": "Crear Nuevo",
+        "save": "Guardar"
     },
     "pages": {
         "home": {
@@ -22,6 +24,20 @@
             "show": {
                 "pageTitle": "Detalles de Canción",
                 "parragraph1": "Esta es una página de detalles de canción que se puede añadir a la lista de favoritos."
+            },
+            "edit": {
+                "pageTitle": {
+                    "edit": "Editar {{title}}",
+                    "new": "Nueva Canción"
+                },
+                "form": {
+                    "title": "Título",
+                    "artist": "Artista",
+                    "album": "Álbum",
+                    "year": "Año",
+                    "duration": "Duración",
+                    "genre": "Género"
+                }
             }
         }
     },

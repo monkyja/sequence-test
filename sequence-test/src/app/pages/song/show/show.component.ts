@@ -8,7 +8,6 @@ import { NzRateModule } from 'ng-zorro-antd/rate';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { FormsModule } from '@angular/forms';
 import { translate, TranslocoPipe } from '@jsverse/transloco';
-import { ROUTES } from '@const/routes';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 

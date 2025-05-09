@@ -33,6 +33,14 @@ export class SummaryCardComponent {
     this.router.navigate([newUrl]);
   }
 
+  onEdit() {
+    if (!this.song) return;
+
+    const newUrl = ROUTES.SONG.EDIT.replace(":id", this.song.id.toString());
+
+    this.router.navigate([newUrl]);
+  }
+
   onDelete() {
     if (!this.song) return;
 

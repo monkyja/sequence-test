@@ -6,9 +6,21 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { SummaryCardComponent } from '@components/song/summary-card/summary-card.component';
+import { Router } from '@angular/router';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { TranslocoPipe } from '@jsverse/transloco';
+import { ROUTES } from '@const/routes';
 
 @Component({
-  imports: [NzGridModule, NzListModule, NzSpinModule, NzEmptyModule, SummaryCardComponent],
+  imports: [
+    NzGridModule,
+    NzListModule,
+    NzSpinModule,
+    NzEmptyModule,
+    SummaryCardComponent,
+    NzButtonModule,
+    TranslocoPipe,
+  ],
   templateUrl: './list.component.html',
 })
 export class SongListComponent {
@@ -17,7 +29,11 @@ export class SongListComponent {
 
   songs = this.songStore.getSongs();
 
-  constructor() {
+  constructor(private router: Router) {
     this.appStore.setTitle('pages.song.list.pageTitle');
+  }
+
+  onCreate() {
+    this.router.navigate([ROUTES.SONG.NEW]).then(() => {});
   }
 }
