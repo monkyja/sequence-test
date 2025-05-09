@@ -1,4 +1,4 @@
-<section class="w-3xl mx-auto p-7">
+<section class="w-full mx-auto p-7">
     @if(this.songStore.isLoading()) {
     <nz-spin nzSize="large" nzTip="Loading..."></nz-spin>
     }
@@ -9,12 +9,12 @@
     <nz-list nzGrid>
         <div nz-row [nzGutter]="16">
             @for (item of this.songStore.songs(); track item) {
-            <div nz-col [nzXXl]="8" [nzXl]="4" [nzLg]="6" [nzMd]="6" [nzSm]="12" [nzXs]="24">
+            <div nz-col [nzXl]="8" [nzLg]="12" [nzSm]="24" [nzXs]="24">
                 <nz-list-item>
-                    {{ item.title }}
+                    <app-song-summaryCard [song]="item" />
                 </nz-list-item>
             </div>
             }
         </div>
     </nz-list>
-    </section>
+</section>

@@ -16,5 +16,12 @@
                 "parragraph1": "Esta es una lista de canciones que se pueden añadir a la lista de favoritos."
             }
         }
+    },
+    "components": {
+        "song": {
+            "summaryCard": {
+                "no-artist": "No hay artista"
+            }
+        }
     }
 }

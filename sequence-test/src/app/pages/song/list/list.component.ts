@@ -5,9 +5,10 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { SummaryCardComponent } from '@components/song/summary-card/summary-card.component';
 
 @Component({
-  imports: [NzGridModule, NzListModule, NzSpinModule, NzEmptyModule],
+  imports: [NzGridModule, NzListModule, NzSpinModule, NzEmptyModule, SummaryCardComponent],
   templateUrl: './list.component.html',
 })
 export class SongListComponent {
