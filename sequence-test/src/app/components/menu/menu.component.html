@@ -1,3 +1,6 @@
 <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="appStore.isMenuCollapsed()">
-    
+    <li nz-menu-item nzMatchRouter routerLink="/home">
+        <nz-icon nzType="home" />
+        <span>{{'pages.home.menuTitle' | transloco}}</span>
+    </li>
 </ul>

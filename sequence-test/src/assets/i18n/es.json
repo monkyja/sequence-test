@@ -2,5 +2,12 @@
     "appComponentPage": "Página de prueba estados",
     "default": {
         "no-pageTitle": "No hay título de página"
+    },
+    "pages": {
+        "home": {
+            "menuTitle": "Inicio",
+            "pageTitle": "Página de inicio",
+            "parragraph1": "Esta prueba técnica ha sido desarrollada por Juan Antonio Ocaña para Sequence."
+        }
     }
 }
