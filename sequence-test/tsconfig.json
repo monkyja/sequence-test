@@ -28,6 +28,9 @@
       "@components/*": [
         "app/components/*"
       ],
+      "@const/*": [
+        "app/constants/*"
+      ],
     },
   },
   "angularCompilerOptions": {
