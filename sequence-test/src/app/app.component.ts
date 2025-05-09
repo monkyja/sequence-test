@@ -1,3 +1,4 @@
+import { SongStore } from '@stores/song/song.store';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -11,9 +12,9 @@ import { AppStore } from './app.store';
   imports: [RouterOutlet, NzIconModule, NzLayoutModule, MenuComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AppStore],
+  providers: [AppStore, SongStore],
 })
 export class AppComponent {
   appStore = inject(AppStore);
-
+  songStore = inject(SongStore);
 }

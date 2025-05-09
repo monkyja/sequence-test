@@ -1,13 +1,57 @@
 {
     "appComponentPage": "Página de prueba estados",
     "default": {
-        "no-pageTitle": "No hay título de página"
+        "no-pageTitle": "No hay título de página",
+        "show": "Ver",
+        "edit": "Editar",
+        "delete": "Eliminar",
+        "cancel": "Cancelar",
+        "create": "Crear Nuevo",
+        "save": "Guardar"
     },
     "pages": {
         "home": {
             "menuTitle": "Inicio",
             "pageTitle": "Página de inicio",
             "parragraph1": "Esta prueba técnica ha sido desarrollada por Juan Antonio Ocaña para Sequence."
+        },
+        "song": {
+            "list": {
+                "menuTitle": "Lista de Canciones",
+                "pageTitle": "Lista de Canciones",
+                "parragraph1": "Esta es una lista de canciones que se pueden añadir a la lista de favoritos."
+            },
+            "show": {
+                "pageTitle": "Detalles de Canción",
+                "parragraph1": "Esta es una página de detalles de canción que se puede añadir a la lista de favoritos."
+            },
+            "edit": {
+                "pageTitle": {
+                    "edit": "Editar {{title}}",
+                    "new": "Nueva Canción"
+                },
+                "form": {
+                    "title": "Título",
+                    "artist": "Artista",
+                    "album": "Álbum",
+                    "year": "Año",
+                    "duration": "Duración",
+                    "genre": "Género"
+                }
+            }
+        }
+    },
+    "components": {
+        "song": {
+            "summaryCard": {
+                "no-artist": "No hay artista",
+                "actions": {
+                    "delete": {
+                        "title": "Eliminar Canción",
+                        "message": "¿Está seguro de que desea eliminar \"{{title}}\"?"
+                    }
+                }
+            }
         }
     }
 }

@@ -31,6 +31,15 @@
       "@const/*": [
         "app/constants/*"
       ],
+      "@models/*": [
+        "app/models/*",
+      ],
+      "@stores/*": [
+        "app/stores/*"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
     },
   },
   "angularCompilerOptions": {

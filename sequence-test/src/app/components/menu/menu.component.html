@@ -1,6 +1,10 @@
-<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="appStore.isMenuCollapsed()">
-    <li nz-menu-item nzMatchRouter routerLink="/home">
+<ul class="mt-56" nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="appStore.isMenuCollapsed()">
+    <li nz-menu-item nzMatchRouter [routerLink]="[ROUTES.HOME]">
         <nz-icon nzType="home" />
         <span>{{'pages.home.menuTitle' | transloco}}</span>
+    </li>
+    <li nz-menu-item nzMatchRouter [routerLink]="[ROUTES.SONG.LIST]">
+        <nz-icon nzType="sound" />
+        <span>{{'pages.song.list.menuTitle' | transloco}}</span>
     </li>
 </ul>
