@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Song } from '@app/models/song.model';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class SongService {
+
+    private apiUrl = 'http://localhost:3000';
+
+    constructor(private http: HttpClient) { }
+
+    getSongs(): Observable<Song[]> {
+        return this.http.get<Song[]>(`${this.apiUrl}/songs?_embed=artist`);
+    }
+}
