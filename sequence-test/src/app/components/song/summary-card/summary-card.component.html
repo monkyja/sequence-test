@@ -1,0 +1,36 @@
+@if(this.song)
+{
+  <nz-card class="w-full rounded-lg shadow-md overflow-hidden relative">
+    <div class="absolute top-2 right-2 bg-amber-400 rounded-full p-4 text-black font-semibold">
+      <i nz-icon nzType="star" class="text-black pr-1"></i>
+      <nz-badge>{{this.song.rating}}</nz-badge>
+    </div>
+    <picture>
+      <source srcset="{{this.song.poster}}" type="image/png">
+      <img src="http://dummyimage.com/400x600.png" [alt]="`${this.song.title} Cover`" [title]="`${this.song.title} Cover`" class="w-full h-48 object-cover">
+    </picture>
+    <div>
+      <h2 class="text-white text-xl font-semibold">{{ this.song.title }}</h2>
+      <h3 class="text-gray-500 text-sm">{{ this.song.artist ? this.song.artist.name : ('components.song.summaryCard.no-artist' | transloco) }}</h3>
+    </div>
+    <div class="flex justify-end">
+      @for (genre of this.song.genre; track $index) {
+        <span class="text-gray-500 text-sm ml-1">{{ genre }}</span>
+      }
+    </div>
+    <div #actions class="flex justify-between items-center mt-4">
+      <button nz-button nzType="primary" (click)="this.onDetail()">
+        <i nz-icon nzType="info-circle" class="pr-1"></i>
+        {{ 'default.show' | transloco }}
+      </button>
+      <button nz-button nzType="default" (click)="this.onEdit()">
+        <i nz-icon nzType="edit" class="pr-1"></i>
+        {{ 'default.edit' | transloco }}
+      </button>
+      <button nz-button nzType="primary" nzDanger (click)="this.onDelete()" [nzLoading]="this.songStore.isDeleting().includes(this.song.id)">
+        <i nz-icon nzType="delete" class="pr-1"></i>
+        {{ 'default.delete' | transloco }}
+      </button>
+    </div>
+  </nz-card>
+}

@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { SongStore } from '@stores/song/song.store';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { MenuComponent } from '@components/menu/menu.component';
+import { HeaderComponent } from '@components/header/header.component';
+import { AppStore } from './app.store';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NzIconModule, NzLayoutModule, MenuComponent, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  providers: [AppStore, SongStore],
 })
 export class AppComponent {
-  title = 'sequence-test';
+  appStore = inject(AppStore);
+  songStore = inject(SongStore);
 }

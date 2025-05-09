@@ -1,0 +1,8 @@
+<header class="flex items-center justify-between">
+    <div class="header-trigger text-white cursor-pointer" (click)="toggleMenuCollapsed()">
+        <nz-icon class="trigger text-3xl" [nzType]="appStore.isMenuCollapsed() ? 'menu-unfold' : 'menu-fold'" />
+    </div>
+    <div class="mx-auto px-4">
+        <span class="text-2xl font-semibold text-white">{{ appStore.title() | transloco: appStore.titleParams() }}</span>
+    </div>
+</header>

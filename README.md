@@ -26,5 +26,5 @@ dado completa autonomía para definir el diseño.
 - AntD NgZorro
 - Json Server
 - Transloco 
-- Zustand
+- NgRx Signals Store
 - Tailwind V4
