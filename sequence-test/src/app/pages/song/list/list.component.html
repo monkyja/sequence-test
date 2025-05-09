@@ -1,1 +1,20 @@
-<p>list works!</p>
+<section class="w-3xl mx-auto p-7">
+    @if(this.songStore.isLoading()) {
+    <nz-spin nzSize="large" nzTip="Loading..."></nz-spin>
+    }
+    @else if (this.songStore.songs().length === 0) {
+    <nz-empty nzDescription="No songs found"></nz-empty>
+    }
+
+    <nz-list nzGrid>
+        <div nz-row [nzGutter]="16">
+            @for (item of this.songStore.songs(); track item) {
+            <div nz-col [nzXXl]="8" [nzXl]="4" [nzLg]="6" [nzMd]="6" [nzSm]="12" [nzXs]="24">
+                <nz-list-item>
+                    {{ item.title }}
+                </nz-list-item>
+            </div>
+            }
+        </div>
+    </nz-list>
+    </section>
