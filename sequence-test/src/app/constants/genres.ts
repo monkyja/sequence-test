@@ -5,5 +5,8 @@ export const GENRES = [
   'Heavy',
   'Romance',
   'Blues',
-  'Psychedelic rock'
-]
+  'Psychedelic rock',
+  'Chill',
+  'Jazz',
+  'Folk',
+];

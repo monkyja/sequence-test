@@ -4,13 +4,14 @@
   <nz-spin nzSize="large" nzTip="Loading..."></nz-spin>
 }
 
-@if(song)
+@if(songStore.editingSong())
 {
   <div>
     <div>
       <label for="title">{{'pages.song.edit.form.title.label' | transloco}}</label>
-      <input nz-input id="title" [placeholder]="'pages.song.edit.form.title.placeholder' | transloco" [(ngModel)]="song.title"/>
+      <input nz-input id="title" [(ngModel)]="songStore.editingSong().title"/>
     </div>
+
     <div>
       <label for="artist">{{'pages.song.edit.form.artist.label' | transloco}}</label>
       <nz-select
@@ -19,7 +20,7 @@
         nzAllowClear
         nzShowSearch
         nzServerSearch
-        [(ngModel)]="song.artistId"
+        [(ngModel)]="songStore.editingSong().artistId"
         (nzOnSearch)="onArtistSearch($event)"
         [nzLoading]="this.artistStore.isLoading()"
       >
@@ -28,16 +29,18 @@
         }
       </nz-select>
     </div>
+
     <div>
       <label for="year">{{'pages.song.edit.form.year.label' | transloco}}</label>
       <nz-input-number
         id="year"
-        [(ngModel)]="song.year"
+        [(ngModel)]="songStore.editingSong().year"
         [nzMin]="1900"
         [nzMax]="dayjs().year() + 1"
         [nzStep]="1"
         />
     </div>
+
     <div>
       <label for="genre">{{'pages.song.edit.form.genre.label' | transloco}}</label>
       <nz-select
@@ -48,7 +51,7 @@
         nzServerSearch
         [nzMaxMultipleCount]="3"
         [nzMode]="'multiple'"
-        [(ngModel)]="song.genre"
+        [(ngModel)]="songStore.editingSong().genre"
         (nzOnSearch)="onGenreSearch($event)"
         [nzLoading]="this.genreStore.isLoading()"
       >
@@ -57,11 +60,12 @@
         }
       </nz-select>
     </div>
+
     <div>
       <label for="duration">{{'pages.song.edit.form.duration.label' | transloco}}</label>
       <nz-slider
         id="duration"
-        [(ngModel)]="song.duration"
+        [(ngModel)]="songStore.editingSong().duration"
         [nzMin]="0"
         [nzMax]="360"
         [nzStep]="1"
@@ -81,14 +85,14 @@
       <input nz-input
         id="poster"
         [placeholder]="'pages.song.edit.form.poster.placeholder' | transloco"
-        [(ngModel)]="song.poster" />
+        [(ngModel)]="songStore.editingSong().poster" />
     </div>
 
     <div>
       <label for="rating">{{'pages.song.edit.form.rating.label' | transloco}}</label>
       <nz-slider
         id="rating"
-        [(ngModel)]="song.rating"
+        [(ngModel)]="songStore.editingSong().rating"
         [nzMin]="0"
         [nzMax]="10"
         [nzStep]="0.01"

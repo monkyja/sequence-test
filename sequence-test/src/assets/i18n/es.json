@@ -58,7 +58,15 @@
                     "label": "Valoración"
                   },
                   "actions": {
-                    "save": "Guardar"
+                    "save": "Guardar",
+                    "confirmations": {
+                      "created": {
+                        "message": "La canción \"{{title}}\" ha sido creada con éxito."
+                      },
+                      "updated": {
+                        "message": "La canción \"{{title}}\" ha sido actualizada con éxito."
+                      }
+                    }
                   }
                 }
             }

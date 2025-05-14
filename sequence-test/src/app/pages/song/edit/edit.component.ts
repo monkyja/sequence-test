@@ -14,12 +14,11 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
-import dayjs from 'dayjs';
 import { GENRES } from '@const/genres';
 import { GenreStore } from '@stores/song/genre.store';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
 import { NzMarks, NzSliderModule } from 'ng-zorro-antd/slider';
-import { createSong } from '@app/factories/song.factory';
+import dayjs from 'dayjs';
 
 @Component({
   imports: [
@@ -44,9 +43,6 @@ export class EditSongPageComponent implements OnInit {
   artistStore = inject(ArtistStore);
   genreStore = inject(GenreStore);
 
-  song?: Song;
-  isEditing = false;
-
   constructor(private route: ActivatedRoute) {}
 
   dayjs = dayjs;
@@ -56,14 +52,12 @@ export class EditSongPageComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const id = params['id'];
       if (!id) {
-        this.song = createSong();
+        this.songStore.createNewSong();
         this.appStore.setTitle('pages.song.edit.pageTitle.new');
         return;
       }
 
-      this.songStore.getSong(id).subscribe((data: Song) => {
-        this.song = data;
-        this.isEditing = true;
+      this.songStore.getSongForEdit(id, (data: Song) => {
         this.appStore.setTitle('pages.song.edit.pageTitle.edit', {
           title: data.title,
         });
@@ -109,17 +103,15 @@ export class EditSongPageComponent implements OnInit {
     10: '10',
   };
 
-  getDurationInTimeFormat(): string
-  {
-    if (!this.song) return '0:00';
+  getDurationInTimeFormat(): string {
+    if (!this.songStore.editingSong()) return '0:00';
 
-    return dayjs(this.song.duration * 1000).format('mm:ss');
+    return dayjs(this.songStore.editingSong().duration * 1000).format('mm:ss');
   }
 
   onSave() {
-    if (!this.song) return;
+    if (!this.songStore.editingSong()) return;
 
-    console.log(this.song);
-    // TODO: Add validation
+    this.songStore.saveSong();
   }
 }
