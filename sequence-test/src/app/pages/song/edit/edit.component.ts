@@ -49,6 +49,9 @@ export class EditSongPageComponent implements OnInit {
   GENRES = GENRES;
 
   ngOnInit() {
+    this.artistStore.getArtistsFiltered();
+    this.genreStore.getGenresFiltered();
+
     this.route.params.subscribe((params) => {
       const id = params['id'];
       if (!id) {

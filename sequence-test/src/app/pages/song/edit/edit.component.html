@@ -11,7 +11,7 @@
         <label for="title">{{'pages.song.edit.form.title.label' | transloco}}</label>
         <input
           nz-input
-          #title
+          id="title"
           [(ngModel)]="songStore.editingSong().title"
           [nzStatus]="songStore.editingInvalidFields().includes('title') ? 'error' : ''"
           />
@@ -45,10 +45,10 @@
           (nzOnSearch)="onArtistSearch($event)"
           [nzLoading]="this.artistStore.isLoading()"
           [nzStatus]="songStore.editingInvalidFields().includes('artistId') ? 'error' : ''"
-        >
-          @for (o of this.artistStore.artists(); track o.id) {
-            <nz-option [nzValue]="o.id" [nzLabel]="o.name"></nz-option>
-          }
+          >
+        @for (o of this.artistStore.artists(); track o.id) {
+          <nz-option [nzValue]="o.id" [nzLabel]="o.name"></nz-option>
+        }
         </nz-select>
       </div>
 
