@@ -24,6 +24,7 @@
     "@jsverse/transloco-utils": "^7.0.2",
     "@ngrx/signals": "^19.1.0",
     "@tailwindcss/postcss": "^4.1.5",
+    "dayjs": "^1.11.13",
     "ng-zorro-antd": "^19.2.2",
     "postcss": "^8.5.3",
     "rxjs": "~7.8.0",

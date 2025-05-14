@@ -61,7 +61,7 @@ export class SongShowComponent {
       nzOkText: translate('default.delete'),
       nzOkType: 'primary',
       nzOkDanger: true,
-      nzOnOk: () => this.songStore.remove(this.song!.id),
+      nzOnOk: () => this.songStore.remove(this.song!.id!),
       nzCancelText: translate('default.cancel'),
     });
   }

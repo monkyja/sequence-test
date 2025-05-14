@@ -1,12 +1,13 @@
 import { Artist } from "@models/artist.model";
 
 export interface Song {
-    id: number;
+    id?: number;
     title: string;
     poster: string;
     genre: string[];
     year: number;
     duration: number;
     rating: number;
-    artist: Artist;
+    artist?: Artist;
+    artistId?: number;
 }

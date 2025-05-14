@@ -1,23 +1,135 @@
-
 @if(songStore.isLoading())
 {
   <nz-spin nzSize="large" nzTip="Loading..."></nz-spin>
 }
 
-@if(song)
+@if(songStore.editingSong())
 {
-  <form nz-form input (ngSubmit)="onSave()">
-    <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="title">{{'pages.song.edit.form.title' | transloco}}</nz-form-label>
-      <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input nz-input formControlName="title" id="title" />
-      </nz-form-control>
-    </nz-form-item>
+  <div class="flex flex-col gap-4 mx-auto">
+    <div class="flex gap-2">
+      <div class="flex flex-col gap-2 w-6/8">
+        <label for="title">{{'pages.song.edit.form.title.label' | transloco}}</label>
+        <input
+          nz-input
+          id="title"
+          [(ngModel)]="songStore.editingSong().title"
+          [nzStatus]="songStore.editingInvalidFields().includes('title') ? 'error' : ''"
+          />
+      </div>
 
-    <nz-form-item>
-      <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
-        <button nz-button nzType="primary">{{'default.save'}}</button>
-      </nz-form-control>
-    </nz-form-item>
-  </form>
+      <div class="flex flex-col gap-2 w-2/8">
+        <label for="year">{{'pages.song.edit.form.year.label' | transloco}}</label>
+        <nz-input-number
+          id="year"
+          class="w-full"
+          [(ngModel)]="songStore.editingSong().year"
+          [nzMin]="1900"
+          [nzMax]="dayjs().year() + 1"
+          [nzStep]="1"
+          [nzStatus]="songStore.editingInvalidFields().includes('year') ? 'error' : ''"
+          />
+      </div>
+    </div>
+
+    <div class="flex flex-row gap-2">
+      <div class="flex flex-col gap-2 w-3/8">
+        <label for="artist">{{'pages.song.edit.form.artist.label' | transloco}}</label>
+        <nz-select
+          class="w-full"
+          id="artist"
+          [nzPlaceHolder]="'pages.song.edit.form.artist.placeholder' | transloco"
+          nzAllowClear
+          nzShowSearch
+          nzServerSearch
+          [(ngModel)]="songStore.editingSong().artistId"
+          (nzOnSearch)="onArtistSearch($event)"
+          [nzLoading]="this.artistStore.isLoading()"
+          [nzStatus]="songStore.editingInvalidFields().includes('artistId') ? 'error' : ''"
+          >
+        @for (o of this.artistStore.artists(); track o.id) {
+          <nz-option [nzValue]="o.id" [nzLabel]="o.name"></nz-option>
+        }
+        </nz-select>
+      </div>
+
+      <div class="flex flex-col gap-2 w-5/8">
+        <label for="genre">{{'pages.song.edit.form.genre.label' | transloco}}</label>
+        <nz-select
+          class="w-full"
+          [nzPlaceHolder]="'pages.song.edit.form.genre.placeholder' | transloco"
+          nzAllowClear
+          nzShowSearch
+          nzServerSearch
+          [nzMaxMultipleCount]="3"
+          [nzMode]="'multiple'"
+          [(ngModel)]="songStore.editingSong().genre"
+          (nzOnSearch)="onGenreSearch($event)"
+          [nzLoading]="this.genreStore.isLoading()"
+          [nzStatus]="songStore.editingInvalidFields().includes('genre') ? 'error' : ''"
+        >
+          @for (o of genreStore.genresFiltered(); track o) {
+            <nz-option [nzValue]="o" [nzLabel]="o"></nz-option>
+          }
+        </nz-select>
+      </div>
+
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="poster">{{'pages.song.edit.form.poster.label' | transloco}}</label>
+      <input nz-input
+        #poster
+        [placeholder]="'pages.song.edit.form.poster.placeholder' | transloco"
+        [(ngModel)]="songStore.editingSong().poster"
+        [nzStatus]="songStore.editingInvalidFields().includes('poster') ? 'error' : ''"
+        />
+    </div>
+
+    <div class="flex gap-2 flex-wrap md:flex-nowrap">
+      <div class="flex flex-col gap-2 w-full md:w-1/2">
+        <label for="duration">{{'pages.song.edit.form.duration.label' | transloco}}</label>
+        <nz-slider
+          #duration
+          [(ngModel)]="songStore.editingSong().duration"
+          [nzMin]="0"
+          [nzMax]="360"
+          [nzStep]="1"
+          [nzTooltipVisible]="'always'"
+          [nzTooltipPlacement]="'top'"
+          tooltip
+          [nzMarks]="sliderDurationMarks"
+          [nzTipFormatter]="durationSliderTemplate"
+        />
+        <ng-template #durationSliderTemplate let-value>
+          <span>{{ getDurationInTimeFormat() }}</span>
+        </ng-template>
+      </div>
+
+      <div class="flex flex-col gap-2 w-full md:w-1/2">
+        <label for="rating">{{'pages.song.edit.form.rating.label' | transloco}}</label>
+        <nz-slider
+          #rating
+          [(ngModel)]="songStore.editingSong().rating"
+          [nzMin]="0"
+          [nzMax]="10"
+          [nzStep]="0.01"
+          [nzTooltipVisible]="'always'"
+          [nzTooltipPlacement]="'top'"
+          tooltip
+          [nzMarks]="sliderRatingMarks"
+        />
+      </div>
+
+    </div>
+
+    <div class="flex flex-row justify-center md:justify-end">
+      <button
+        nz-button
+        nzType="primary"
+        (click)="onSave()"
+        [nzLoading]="songStore.isSaving()">
+          {{'pages.song.edit.form.actions.save' | transloco}}
+        </button>
+    </div>
+  </div>
 }
