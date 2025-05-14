@@ -28,7 +28,7 @@ export class SummaryCardComponent {
   onDetail() {
     if (!this.song) return;
 
-    const newUrl = ROUTES.SONG.SHOW.replace(":id", this.song.id.toString());
+    const newUrl = ROUTES.SONG.SHOW.replace(":id", this.song.id!.toString());
 
     this.router.navigate([newUrl]);
   }
@@ -36,7 +36,7 @@ export class SummaryCardComponent {
   onEdit() {
     if (!this.song) return;
 
-    const newUrl = ROUTES.SONG.EDIT.replace(":id", this.song.id.toString());
+    const newUrl = ROUTES.SONG.EDIT.replace(":id", this.song.id!.toString());
 
     this.router.navigate([newUrl]);
   }
@@ -53,7 +53,7 @@ export class SummaryCardComponent {
       nzOkText: translate('default.delete'),
       nzOkType: 'primary',
       nzOkDanger: true,
-      nzOnOk: () => this.songStore.remove(this.song!.id),
+      nzOnOk: () => this.songStore.remove(this.song!.id!),
       nzCancelText: translate('default.cancel'),
     });
   }

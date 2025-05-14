@@ -27,7 +27,7 @@
         <i nz-icon nzType="edit" class="pr-1"></i>
         {{ 'default.edit' | transloco }}
       </button>
-      <button nz-button nzType="primary" nzDanger (click)="this.onDelete()" [nzLoading]="this.songStore.isDeleting().includes(this.song.id)">
+      <button nz-button nzType="primary" nzDanger (click)="this.onDelete()" [nzLoading]="this.songStore.isDeleting().includes(this.song.id!)">
         <i nz-icon nzType="delete" class="pr-1"></i>
         {{ 'default.delete' | transloco }}
       </button>

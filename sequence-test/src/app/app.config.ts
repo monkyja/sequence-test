@@ -17,14 +17,15 @@ registerLocaleData(es);
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
-    provideRouter(routes), 
-    provideNzIcons(icons), 
-    provideNzI18n(es_ES), 
-    importProvidersFrom(FormsModule), 
-    provideAnimationsAsync(), 
-    provideHttpClient(), provideHttpClient(), provideTransloco({
-        config: { 
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes),
+    provideNzIcons(icons),
+    provideNzI18n(es_ES),
+    importProvidersFrom(FormsModule),
+    provideAnimationsAsync(),
+    provideHttpClient(),
+    provideTransloco({
+        config: {
           availableLangs: ['es'],
           defaultLang: 'es',
           prodMode: !isDevMode(),

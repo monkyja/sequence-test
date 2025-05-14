@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* css incompatibilities */
+.w-full.ant-input-number {
+  width: 100%;
+}
+
+app-root > nz-layout > .ant-layout > nz-content.ant-layout-content {
+  margin: 0;
+}
+
+app-root>nz-layout>.ant-layout>nz-content.ant-layout-content .inner-content {
+  overflow-y: auto;
+  padding-bottom: 30px;
+}
