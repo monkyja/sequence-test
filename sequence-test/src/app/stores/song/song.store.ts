@@ -9,6 +9,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { TranslocoService } from '@jsverse/transloco';
 import { ROUTES } from '@const/routes';
 import { createSong } from '@app/factories/song.factory';
+import { validateSong } from '@app/validations/song/song.validator';
 
 type SongState = {
   isLoading: boolean;
@@ -17,6 +18,7 @@ type SongState = {
   detailedSong?: Song;
 
   editingSong: Song;
+  editingInvalidFields: string[];
   isSaving: boolean;
 
   fullLoadedSongs: Song[];
@@ -28,6 +30,7 @@ const initialState: SongState = {
   songs: [],
   fullLoadedSongs: [],
   editingSong: createSong(),
+  editingInvalidFields: [],
   isSaving: false,
 };
 
@@ -86,6 +89,19 @@ export const SongStore = signalStore(
       },
       saveSong: () => {
         patchState(store, { isSaving: true });
+
+        const invalidFields = validateSong(store.editingSong());
+        patchState(store, { editingInvalidFields: invalidFields });
+
+        if(invalidFields.length > 0) {
+          patchState(store, { isSaving: false });
+          messageService.error(
+            translocoService.translate(
+              'pages.song.edit.form.actions.confirmations.error.message'
+            )
+          );
+          return;
+        }
 
         if (store.editingSong().id) {
           songService.update(store.editingSong()).subscribe((data: Song) => {

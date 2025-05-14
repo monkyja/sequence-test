@@ -65,6 +65,9 @@
                       },
                       "updated": {
                         "message": "La canción \"{{title}}\" ha sido actualizada con éxito."
+                      },
+                      "error": {
+                        "message": "Formulario inválido. Por favor, revise los campos resaltados."
                       }
                     }
                   }

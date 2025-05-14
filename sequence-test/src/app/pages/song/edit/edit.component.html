@@ -9,19 +9,24 @@
     <div class="flex gap-2">
       <div class="flex flex-col gap-2 w-6/8">
         <label for="title">{{'pages.song.edit.form.title.label' | transloco}}</label>
-        <input nz-input #title [(ngModel)]="songStore.editingSong().title"/>
+        <input
+          nz-input
+          #title
+          [(ngModel)]="songStore.editingSong().title"
+          [nzStatus]="songStore.editingInvalidFields().includes('title') ? 'error' : ''"
+          />
       </div>
 
       <div class="flex flex-col gap-2 w-2/8">
         <label for="year">{{'pages.song.edit.form.year.label' | transloco}}</label>
         <nz-input-number
-          #year
-          [id]="'year'"
+          id="year"
           class="w-full"
           [(ngModel)]="songStore.editingSong().year"
           [nzMin]="1900"
           [nzMax]="dayjs().year() + 1"
           [nzStep]="1"
+          [nzStatus]="songStore.editingInvalidFields().includes('year') ? 'error' : ''"
           />
       </div>
     </div>
@@ -39,6 +44,7 @@
           [(ngModel)]="songStore.editingSong().artistId"
           (nzOnSearch)="onArtistSearch($event)"
           [nzLoading]="this.artistStore.isLoading()"
+          [nzStatus]="songStore.editingInvalidFields().includes('artistId') ? 'error' : ''"
         >
           @for (o of this.artistStore.artists(); track o.id) {
             <nz-option [nzValue]="o.id" [nzLabel]="o.name"></nz-option>
@@ -59,6 +65,7 @@
           [(ngModel)]="songStore.editingSong().genre"
           (nzOnSearch)="onGenreSearch($event)"
           [nzLoading]="this.genreStore.isLoading()"
+          [nzStatus]="songStore.editingInvalidFields().includes('genre') ? 'error' : ''"
         >
           @for (o of genreStore.genresFiltered(); track o) {
             <nz-option [nzValue]="o" [nzLabel]="o"></nz-option>
@@ -73,7 +80,9 @@
       <input nz-input
         #poster
         [placeholder]="'pages.song.edit.form.poster.placeholder' | transloco"
-        [(ngModel)]="songStore.editingSong().poster" />
+        [(ngModel)]="songStore.editingSong().poster"
+        [nzStatus]="songStore.editingInvalidFields().includes('poster') ? 'error' : ''"
+        />
     </div>
 
     <div class="flex gap-2 flex-wrap md:flex-nowrap">
