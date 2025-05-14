@@ -29,7 +29,7 @@
             },
             "edit": {
                 "pageTitle": {
-                    "edit": "Editar {{title}}",
+                    "edit": "Editar \"{{title}}\"",
                     "new": "Nueva Canción"
                 },
                 "form": {

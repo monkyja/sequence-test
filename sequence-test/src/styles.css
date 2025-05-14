@@ -1,2 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+
+/* css incompatibilities */
+.w-full.ant-input-number {
+  width: 100%;
+}
