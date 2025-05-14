@@ -2,12 +2,14 @@
     "appComponentPage": "Página de prueba estados",
     "default": {
         "no-pageTitle": "No hay título de página",
+        "no-data": "No se encontraron datos",
         "show": "Ver",
         "edit": "Editar",
         "delete": "Eliminar",
         "cancel": "Cancelar",
         "create": "Crear Nuevo",
-        "save": "Guardar"
+        "save": "Guardar",
+        "loading": "Cargando..."
     },
     "pages": {
         "home": {
@@ -31,12 +33,33 @@
                     "new": "Nueva Canción"
                 },
                 "form": {
-                    "title": "Título",
-                    "artist": "Artista",
-                    "album": "Álbum",
-                    "year": "Año",
-                    "duration": "Duración",
-                    "genre": "Género"
+                  "title": {
+                    "label": "Título"
+                  },
+                  "artist": {
+                    "label": "Artista",
+                    "placeholder": "Búsqueda por nombre de artista"
+                  },
+                  "year": {
+                    "label": "Año"
+                  },
+                  "duration": {
+                    "label": "Duración"
+                  },
+                  "genre": {
+                    "label": "Género",
+                    "placeholder": "Búsqueda por nombre de género"
+                  },
+                  "poster": {
+                    "label": "Portada",
+                    "placeholder": "URL de la portada"
+                  },
+                  "rating": {
+                    "label": "Valoración"
+                  },
+                  "actions": {
+                    "save": "Guardar"
+                  }
                 }
             }
         }
